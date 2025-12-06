@@ -65,7 +65,7 @@ async function loadArticles() {
       <h3>${escapeHtml(a.title)}</h3>
       <p class="meta">autor: ${escapeHtml(a.author || 'anonim')} • ${new Date(a.created_at).toLocaleString()}</p>
       <p class="excerpt">${escapeHtml(a.content.slice(0, 200))}${a.content.length > 200 ? '…' : ''}</p>
-      <button data-id="${a.id}" class="view-btn">Pokaż szczegóły</button>
+      <button data-id="${a.id}" class="view-btn">Comment</button>
     `;
     articlesDiv.appendChild(card);
   });
