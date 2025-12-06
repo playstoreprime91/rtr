@@ -48,11 +48,21 @@ header h1{
   gap: 20px;
 }
 
-/* lewa kolumna — formularz */
+/* 🔥 LEWA KOLUMNA — FORMULARZ */
 #new-article {
   position: sticky;
   top: 90px; /* poniżej przyklejonego H1 */
   height: fit-content;
+
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; /* wyśrodkowanie treści w boxie */
+}
+
+/* 🔥 WYŚRODKOWANIE PÓL TEKSTOWYCH */
+#new-article input,
+#new-article textarea {
+  text-align: center;
 }
 
 .right-column {
@@ -88,3 +98,35 @@ button:hover{opacity:0.95}
 .meta{font-size:0.85rem;color:var(--muted);margin-bottom:8px}
 
 .hidden{display:none}
+
+.comment{
+  background:#fff;
+  border-radius:6px;
+  padding:10px;
+  margin:10px 0;
+  border:1px solid #eee
+}
+.replies{margin-left:18px;margin-top:8px}
+.reply{
+  background:#fbfbfd;
+  border-radius:6px;
+  padding:8px;
+  margin:6px 0;
+  border-left:3px solid #e6eef9
+}
+.comment-actions{margin-top:6px}
+.comment-form,.reply-form{
+  background:#fff;
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #eee;
+  margin-bottom:12px
+}
+
+#back-to-list{margin-bottom:12px}
+
+footer{
+  margin-top:20px;
+  text-align:center;
+  color:var(--muted)
+}
