@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mini Blog – Artykuł</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+    const SUPABASE_URL = "TWOJ_URL_SUPABASE";
+    const SUPABASE_ANON_KEY = "TWOJ_ANON_KEY";
+    window.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  </script>
+</head>
+<body>
+  <main class="page container">
+
+    <header>
+      <h1 id="pageTitle">Artykuł</h1>
+      <a href="index.html" class="link">◀ Powrót</a>
+    </header>
+
+    <section id="articleCard" class="card"></section>
+
+    <section class="card">
+      <h3>Komentarze</h3>
+
+      <div id="comments"></div>
+
+      <h4>Dodaj komentarz</h4>
+      <input id="c_author" class="input" placeholder="Twoje imię">
+      <textarea id="c_content" class="textarea" placeholder="Treść komentarza"></textarea>
+      <button id="addCommentBtn" class="btn primary">Dodaj komentarz</button>
+    </section>
+
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
