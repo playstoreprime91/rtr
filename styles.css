@@ -15,27 +15,33 @@ body{
   color:#111;
   padding:20px;
   display:flex;
-  justify-content:center;
+  flex-direction:column;
+  align-items:center;
 }
 
+/* 🔥 H1 NA SAMEJ GÓRZE I WYŚRODKOWANY */
 header {
-  position: sticky;
-  top: 0;
   width: 100%;
   text-align: center;
-  z-index: 1000;
+  position: sticky;
+  top: 0;
   background: var(--bg);
   padding: 10px 0;
+  z-index: 1000;
 }
 
+header h1{
+  margin:0;
+  font-size:1.8rem;
+}
 
 .container{
   width:100%;
   max-width:var(--maxw);
-  margin:0 auto;
+  margin-top:20px;
 }
 
-/* --- DWIE KOLUMNY --- */
+/* 🔥 2 KOLUMNY DLA ZAWARTOŚCI (NIE DLA H1!) */
 .two-columns {
   display: grid;
   grid-template-columns: 320px 1fr;
@@ -45,15 +51,13 @@ header {
 /* lewa kolumna — formularz */
 #new-article {
   position: sticky;
-  top: 90px; /* dzięki temu nie wchodzi pod nagłówek */
+  top: 90px; /* poniżej przyklejonego H1 */
   height: fit-content;
 }
 
 .right-column {
   width: 100%;
 }
-
-header h1{margin:0 0 18px 0;font-size:1.6rem}
 
 .card{
   background:var(--card);
@@ -83,37 +87,4 @@ button:hover{opacity:0.95}
 .excerpt{color:var(--muted);margin-bottom:8px}
 .meta{font-size:0.85rem;color:var(--muted);margin-bottom:8px}
 
-#articles .card{display:block}
 .hidden{display:none}
-
-.comment{
-  background:#fff;
-  border-radius:6px;
-  padding:10px;
-  margin:10px 0;
-  border:1px solid #eee
-}
-.replies{margin-left:18px;margin-top:8px}
-.reply{
-  background:#fbfbfd;
-  border-radius:6px;
-  padding:8px;
-  margin:6px 0;
-  border-left:3px solid #e6eef9
-}
-.comment-actions{margin-top:6px}
-.comment-form,.reply-form{
-  background:#fff;
-  padding:10px;
-  border-radius:6px;
-  border:1px solid #eee;
-  margin-bottom:12px
-}
-
-#back-to-list{margin-bottom:12px}
-
-footer{
-  margin-top:20px;
-  text-align:center;
-  color:var(--muted)
-}
