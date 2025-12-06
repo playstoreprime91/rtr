@@ -18,14 +18,16 @@ body{
   justify-content:center;
 }
 
-/* 🔥 PRZYKLEJONY NAGŁÓWEK */
 header {
   position: sticky;
   top: 0;
+  width: 100%;
+  text-align: center;
   z-index: 1000;
   background: var(--bg);
   padding: 10px 0;
 }
+
 
 .container{
   width:100%;
