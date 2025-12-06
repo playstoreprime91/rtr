@@ -1,51 +1,60 @@
 <!doctype html>
 <html lang="pl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mini Blog Feed</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini Blog — artykuły i komentarze</title>
+
+  <link rel="stylesheet" href="styles.css" />
 
   <!-- Supabase CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/dist/umd/supabase.js"></script>
 
-  <!-- Supabase klient -->
-   <script>
-    const SUPABASE_URL = "https://iwyqkpvbvgvymwuhntof.supabase.co"; // Twój URL
-    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3eXFrcHZidmd2eW13dWhudG9mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMyMjgzNDcsImV4cCI6MjA3ODgwNDM0N30.e3tP6GRqXsliKn1Nkl9Uc8vueaeFHbM1hGe7nhCrnds"; // Twój anon key
+  <!-- Twój Supabase klient -->
+  <script>
+    const SUPABASE_URL = "https://cmmzhydmdrzujbgpbike.supabase.co"; // Twój URL
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNtbXpoeWRtZHJ6dWpiZ3BiaWtlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ5NDAwOTQsImV4cCI6MjA4MDUxNjA5NH0.NO3xiLd2jV5WrXPoqjeuKxp_R_5EjtuFwctSY1Eym8I"; // Twój anon key
     window.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   </script>
-
-  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <div class="header-container">
-      <h1>Mini Blog Feed</h1>
-    </div>
+    <h1>Mini Blog — artykuły i komentarze</h1>
   </header>
 
   <main class="container">
-    <!-- Dodawanie artykułu -->
-    <section class="new-post">
+    <section id="new-article">
+      <h2>Dodaj artykuł</h2>
       <form id="article-form">
-        <textarea id="article-content" placeholder="Co słychać?" required></textarea>
-        <input type="text" id="article-author" placeholder="Twoje imię" />
-        <button type="submit">Opublikuj</button>
+        <label>
+          Tytuł
+          <input id="article-title" required maxlength="200" />
+        </label>
+        <label>
+          Autor
+          <input id="article-author" required maxlength="100" />
+        </label>
+        <label>
+          Treść
+          <textarea id="article-content" required rows="6"></textarea>
+        </label>
+        <button type="submit">Dodaj artykuł</button>
       </form>
     </section>
 
-    <!-- Lista artykułów -->
-    <section id="feed"></section>
+    <section id="articles-list">
+      <h2>Lista artykułów</h2>
+      <div id="articles"></div>
+    </section>
 
-    <!-- Szczegóły artykułu + komentarze -->
     <section id="article-detail" class="hidden">
-      <button id="back-btn">← Wróć do feedu</button>
+      <button id="back-to-list">← Wróć do listy</button>
       <div id="detail"></div>
     </section>
   </main>
 
   <footer>
-    <p>Mini Blog — Supabase & JS</p>
+    <small>Projekt uczelniany — Supabase + statyczny frontend</small>
   </footer>
 
   <script src="script.js"></script>
