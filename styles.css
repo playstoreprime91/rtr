@@ -1,69 +1,45 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
+:root{
+  --bg:#f6f8fb;
+  --card:#fff;
+  --accent:#2b6cb0;
+  --muted:#666;
+  --maxw:900px;
 }
-
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
+*{box-sizing:border-box}
+body{
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  margin:0;
+  color:#111;
+  padding:20px;
+  display:flex;
+  justify-content:center;
 }
-
-h1, h2, h3, h4 {
-  margin-bottom: 10px;
+.container{
+  width:100%;
+  max-width:var(--maxw);
+  margin:0 auto;
 }
-
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
+header h1{margin:0 0 18px 0;font-size:1.6rem}
+.card{
+  background:var(--card);
+  border-radius:8px;
+  padding:14px;
+  box-shadow:0 2px 8px rgba(20,20,40,0.05);
+  margin-bottom:12px;
 }
-
-.input, .textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-.textarea {
-  height: 120px;
-  resize: vertical;
-}
-
-.btn {
-  padding: 12px 18px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.btn.primary {
-  background: #2b7bff;
-  color: white;
-}
-
-.link {
-  color: #2b7bff;
-  text-decoration: none;
-}
-
-.article-card {
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  background: #fff;
-}
-
-.comment {
-  background: #eef3ff;
-  padding: 12px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
+label{display:block;margin-bottom:8px}
+input,textarea{width:100%;padding:8px;border:1px solid #d6d8db;border-radius:6px}
+button{background:var(--accent);color:#fff;padding:8px 12px;border-radius:6px;border:0;cursor:pointer}
+button:hover{opacity:0.95}
+.excerpt{color:var(--muted);margin-bottom:8px}
+.meta{font-size:0.85rem;color:var(--muted);margin-bottom:8px}
+#articles .card{display:block}
+.hidden{display:none}
+.comment{background:#fff;border-radius:6px;padding:10px;margin:10px 0;border:1px solid #eee}
+.replies{margin-left:18px;margin-top:8px}
+.reply{background:#fbfbfd;border-radius:6px;padding:8px;margin:6px 0;border-left:3px solid #e6eef9}
+.comment-actions{margin-top:6px}
+.comment-form, .reply-form{background:#fff;padding:10px;border-radius:6px;border:1px solid #eee;margin-bottom:12px}
+#back-to-list{margin-bottom:12px}
+footer{margin-top:20px;text-align:center;color:var(--muted)}
