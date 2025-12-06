@@ -18,6 +18,15 @@ body{
   justify-content:center;
 }
 
+/* 🔥 PRZYKLEJONY NAGŁÓWEK */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--bg);
+  padding: 10px 0;
+}
+
 .container{
   width:100%;
   max-width:var(--maxw);
@@ -34,11 +43,10 @@ body{
 /* lewa kolumna — formularz */
 #new-article {
   position: sticky;
-  top: 10px;
+  top: 90px; /* dzięki temu nie wchodzi pod nagłówek */
   height: fit-content;
 }
 
-/* prawa kolumna */
 .right-column {
   width: 100%;
 }
