@@ -53,6 +53,8 @@ header h1{
   position: sticky;
   top: 90px; /* poniżej przyklejonego H1 */
   height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .right-column {
