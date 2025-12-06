@@ -1,44 +1,37 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Smart Todo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mini Blog – Lista artykułów</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <main class="container">
-    <header>
-      <h1>Smart Todo</h1>
-      <p class="subtitle">Organize your tasks smartly</p>
-    </header>
-
-    <div id="errorMessage" class="error-message" role="alert"></div>
-
-    <section class="input-group">
-      <input type="text" id="titleInput" placeholder="Task title" class="todo-input" autocomplete="off">
-      <input type="text" id="descInput" placeholder="Description" class="todo-input" autocomplete="off">
-      <input type="date" id="dueInput" class="todo-input">
-      <button id="addBtn" class="add-btn">Add Task</button>
-    </section>
-
-    <section class="list-section">
-      <ul id="todoList" class="todo-list"></ul>
-    </section>
-
-    <footer>
-      <div id="pagination" class="pagination" aria-label="Pagination"></div>
-    </footer>
-  </main>
-
-  <!-- Supabase client (opcjonalnie) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <!-- Twoje skrypty -->
+  <script>
+    const SUPABASE_URL = "TWOJ_URL_SUPABASE";
+    const SUPABASE_ANON_KEY = "TWOJ_ANON_KEY";
+    window.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  </script>
+</head>
+<body>
+  <main class="page container">
+
+    <header>
+      <h1>Mini Blog</h1>
+    </header>
+
+    <section id="articlesList"></section>
+
+    <section class="card">
+      <h3>Dodaj nowy artykuł</h3>
+      <input id="title" placeholder="Tytuł" class="input">
+      <textarea id="content" placeholder="Treść artykułu" class="textarea"></textarea>
+      <button id="addArticleBtn" class="btn primary">Dodaj artykuł</button>
+    </section>
+
+  </main>
+
   <script src="script.js" defer></script>
 </body>
 </html>
