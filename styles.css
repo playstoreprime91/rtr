@@ -13,13 +13,10 @@ body{
   background:var(--bg);
   margin:0;
   color:#111;
-
-  /* 🔹 ustawienie środkowania kontenera */
-  display: flex;
-  justify-content: center; /* poziome centrowanie */
-  flex-direction: column;
-  align-items: center;     /* poziome centrowanie */
-  padding: 20px;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
 /* 🔥 H1 NA SAMEJ GÓRZE I WYŚRODKOWANY */
@@ -38,7 +35,6 @@ header h1{
   font-size:1.8rem;
 }
 
-/* 🔹 Kontener wyśrodkowany dzięki flex w body */
 .container{
   width:100%;
   max-width:var(--maxw);
@@ -52,12 +48,22 @@ header h1{
   gap: 20px;
 }
 
-/* lewa kolumna — formularz */
+/* 🔥 WYŚRODKOWANY BOX "DODAJ ARTYKUŁ" */
 #new-article {
   position: sticky;
-  top: 90px; /* poniżej przyklejonego H1 */
+  top: 90px;
   height: fit-content;
-  /* ⚡ usunięto wyśrodkowanie boxa i jego zawartości */
+
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;   /* wyśrodkowanie treści */
+  width: 100%;
+}
+
+#new-article input,
+#new-article textarea {
+  text-align: center;   /* pola formularza też wyśrodkowane */
 }
 
 .right-column {
@@ -92,6 +98,7 @@ button:hover{opacity:0.95}
 .excerpt{color:var(--muted);margin-bottom:8px}
 .meta{font-size:0.85rem;color:var(--muted);margin-bottom:8px}
 
+#articles .card{display:block}
 .hidden{display:none}
 
 .comment{
