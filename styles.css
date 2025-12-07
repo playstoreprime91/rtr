@@ -1,118 +1,42 @@
-:root{
-  --bg:#f6f8fb;
-  --card:#fff;
-  --accent:#2b6cb0;
-  --muted:#666;
-  --maxw:1100px;
+body {
+  font-family: Arial, sans-serif;
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
 }
 
-*{box-sizing:border-box}
-
-body{
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  background:var(--bg);
-  margin:0;
-  color:#111;
-  padding:20px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
-/* HEADER */
-header {
-  width: 100%;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  background: var(--bg);
-  padding: 10px 0;
-  z-index: 1000;
-}
-
-header h1{
-  margin:0;
-  font-size:1.8rem;
-}
-
-.container{
-  width:100%;
-  max-width:var(--maxw);
-  margin-top:20px;
-}
-
-.two-columns {
+form {
   display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 20px;
+  margin-bottom: 20px;
 }
 
-#new-article {
-  position: sticky;
-  top: 90px;
-  height: fit-content;
+form input {
+  padding: 8px;
 }
 
-.right-column {
+button {
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.secondary {
+  background: #ccc;
+}
+
+.danger {
+  background: #d9534f;
+  color: white;
+}
+
+table {
   width: 100%;
+  border-collapse: collapse;
+  margin-top: 25px;
 }
 
-.card{
-  background:var(--card);
-  border-radius:8px;
-  padding:14px;
-  box-shadow:0 2px 8px rgba(20,20,40,0.05);
-  margin-bottom:12px;
-}
-
-label{display:block;margin-bottom:8px}
-input,textarea{
-  width:100%;
-  padding:8px;
-  border:1px solid #d6d8db;
-  border-radius:6px
-}
-button{
-  background:var(--accent);
-  color:#fff;
-  padding:8px 12px;
-  border-radius:6px;
-  border:0;
-  cursor:pointer
-}
-button:hover{opacity:0.95}
-
-.excerpt{color:var(--muted);margin-bottom:8px}
-.meta{font-size:0.85rem;color:var(--muted);margin-bottom:8px}
-
-.hidden{display:none}
-
-/* 🔥 KOMENTARZE I ODPOWIEDZI */
-.comment {
-  background:#fff;
-  border-radius:8px;
-  padding:10px 14px;
-  margin-bottom:12px;
-  box-shadow:0 1px 4px rgba(0,0,0,0.08);
-}
-
-.replies {
-  border-left:2px solid #dcdcdc;
-  margin-top:8px;
-  padding-left:12px;
-}
-
-.reply-btn {
-  font-size:0.9rem;
-  color:#2b6cb0;
-  cursor:pointer;
-  background:none;
-  border:0;
-}
-
-.reply-form {
-  margin-top:10px;
-  padding:10px;
-  background:#f0f3f8;
-  border-radius:6px;
+td, th {
+  padding: 10px;
+  border: 1px solid #ddd;
 }
