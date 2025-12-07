@@ -1,73 +1,93 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Supabase CRUD — Books</title>
-
-  <!-- Supabase CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/dist/umd/supabase.js"></script>
-
-  <!-- STYLE -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Encja: Expense — CRUD</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
+  <main class="container">
+    <h1>Expense — CRUD (A+B)</h1>
 
-  <h1>Books CRUD (Supabase)</h1>
+    <section id="form-section" class="card">
+      <h2 id="form-title">Dodaj nowy wydatek</h2>
+      <form id="expense-form" autocomplete="off">
+        <input type="hidden" id="expense-id" />
+        <label>
+          Tytuł
+          <input id="title" name="title" required minlength="2" maxlength="200" />
+        </label>
 
-  <!-- 🔥 Klucze Supabase w HTML, tak jak chciałeś 🔥 -->
+        <label>
+          Data
+          <input id="date" name="date" type="date" required />
+        </label>
+
+        <label>
+          Kwota (PLN)
+          <input id="amount" name="amount" type="number" step="0.01" required />
+        </label>
+
+        <label>
+          Notatka
+          <textarea id="note" name="note" rows="2" maxlength="500"></textarea>
+        </label>
+
+        <div class="actions">
+          <button id="save-btn" type="submit">Zapisz</button>
+          <button id="reset-btn" type="button">Wyczyść</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="list-section" class="card">
+      <h2>Lista wydatków</h2>
+      <div id="controls">
+        <input id="search" placeholder="Szukaj po tytule..." />
+        <button id="refresh-btn">Odśwież</button>
+      </div>
+
+      <table id="expenses-table" aria-live="polite">
+        <thead>
+          <tr>
+            <th>Tytuł</th>
+            <th>Data</th>
+            <th>Kwota</th>
+            <th>Notatka</th>
+            <th>Akcje</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <div id="empty">Brak rekordów.</div>
+    </section>
+
+    <section id="detail-modal" class="modal hidden">
+      <div class="modal-content card">
+        <button id="close-modal" class="close">&times;</button>
+        <h3>Szczegóły wydatku</h3>
+        <div id="detail-body"></div>
+      </div>
+    </section>
+
+    <footer class="credit">
+      <small>Model (encja): <strong>expenses</strong> — pola: id (uuid), date (date), amount (numeric), title (text), note (text), created_at (timestamp)</small>
+    </footer>
+  </main>
+
   <script>
-    const SUPABASE_URL = "https://iwyqkpvbvgvymwuhntof.supabase.co";
-    const SUPABASE_ANON_KEY =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3eXFrcHZidmd2eW13dWhudG9mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMyMjgzNDcsImV4cCI6MjA3ODgwNDM0N30.e3tP6GRqXsliKn1Nkl9Uc8vueaeFHbM1hGe7nhCrnds";
-
-    // dostępne jako window.supabase
-    window.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    /* === SUPABASE CREDENTIALS (Tylko tutaj!) ===
+       Wklej: SUPABASE_URL i SUPABASE_ANON_KEY (anon publiczny)
+       Przykład:
+         const SUPABASE_URL = "https://abcd1234.supabase.co";
+         const SUPABASE_ANON_KEY = "eyJhbGciOiJI...";
+    */
+    const SUPABASE_URL = "REPLACE_WITH_YOUR_SUPABASE_URL";
+    const SUPABASE_ANON_KEY = "REPLACE_WITH_YOUR_SUPABASE_ANON_KEY";
   </script>
 
-  <!-- Formularz -->
-  <form id="bookForm">
-    <label>Tytuł *</label>
-    <input id="title" required />
-
-    <label>Autor *</label>
-    <input id="author" required />
-
-    <label>Data publikacji *</label>
-    <input id="published_date" type="date" required />
-
-    <label>Strony *</label>
-    <input id="pages" type="number" required />
-
-    <label>Gatunek (B)</label>
-    <input id="genre" />
-
-    <label>Ocena 1–5 (B)</label>
-    <input id="rating" type="number" min="1" max="5" />
-
-    <button type="submit" id="saveBtn">Dodaj</button>
-    <button type="button" id="cancelBtn" class="secondary" style="display:none;">Anuluj</button>
-  </form>
-
-  <!-- Lista -->
-  <table>
-    <thead>
-      <tr>
-        <th>Tytuł</th>
-        <th>Autor</th>
-        <th>Data</th>
-        <th>Strony</th>
-        <th>Gatunek</th>
-        <th>Ocena</th>
-        <th>Akcje</th>
-      </tr>
-    </thead>
-    <tbody id="tableBody"></tbody>
-  </table>
-
-  <!-- SCRIPT -->
   <script src="script.js"></script>
-
 </body>
 </html>
