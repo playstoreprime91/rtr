@@ -91,8 +91,8 @@ Aplikacja oparta jest na modelu klient-serwer.
 5. Otwórz przeglądarkę pod adresem `http://localhost:3000` (lub wskazanym w terminalu).
 
 ## Hosting
-- Aplikacja hostowana pod adresem: [link do hostingu]
-- GitHub Pages (frontend): [link do GitHub Pages]
+- Aplikacja hostowana pod adresem: [https://supabase.com/]
+- GitHub Pages (frontend): [[link do GitHub Pages](https://github.com/playstoreprime91/rtr/tree/main)]
 
 ## Prezentacja i nagranie
 - Prezentacja PDF: [https://drive.google.com/drive/folders/1Em9ZX6vcq3IDqwOb6wugeTthAEx6pAlY?usp=sharing]
