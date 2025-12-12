@@ -96,4 +96,4 @@ Aplikacja oparta jest na modelu klient-serwer.
 
 ## Prezentacja i nagranie
 - Prezentacja PDF: [https://drive.google.com/drive/folders/1Em9ZX6vcq3IDqwOb6wugeTthAEx6pAlY?usp=sharing]
-- Nagranie wideo: [link do wideo]
+- Nagranie wideo: [https://drive.google.com/drive/folders/1Em9ZX6vcq3IDqwOb6wugeTthAEx6pAlY?usp=sharing]
