@@ -95,5 +95,5 @@ Aplikacja oparta jest na modelu klient-serwer.
 - GitHub Pages (frontend): [link do GitHub Pages]
 
 ## Prezentacja i nagranie
-- Prezentacja PDF: [link do PDF]
+- Prezentacja PDF: [https://drive.google.com/drive/folders/1Em9ZX6vcq3IDqwOb6wugeTthAEx6pAlY?usp=sharing]
 - Nagranie wideo: [link do wideo]
