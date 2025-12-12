@@ -10,9 +10,6 @@ backBtn.addEventListener('click', () => {
   loadArticles();
 });
 
-/* ---------------------------------------------------
-   DODAWANIE ARTYKUŁU
---------------------------------------------------- */
 document.getElementById('article-form').addEventListener('submit', async (e) => {
   e.preventDefault();
   const title = document.getElementById('article-title').value.trim();
@@ -26,9 +23,7 @@ document.getElementById('article-form').addEventListener('submit', async (e) => 
   loadArticles();
 });
 
-/* ---------------------------------------------------
-   ŁADOWANIE LISTY ARTYKUŁÓW
---------------------------------------------------- */
+
 async function loadArticles() {
   articlesDiv.innerHTML = '<p>Ładowanie...</p>';
 
@@ -62,9 +57,6 @@ async function loadArticles() {
   );
 }
 
-/* ---------------------------------------------------
-   WYŚWIETLENIE ARTYKUŁU + KOMENTARZE
---------------------------------------------------- */
 async function showArticle(articleId) {
   listSection.classList.add('hidden');
   detailSection.classList.remove('hidden');
@@ -83,7 +75,6 @@ async function showArticle(articleId) {
     .eq('article_id', articleId)
     .order('created_at', { ascending: true });
 
-  // Budowanie drzewa
   const byId = {};
   comments?.forEach(c => (byId[c.id] = { ...c, replies: [] }));
 
@@ -116,7 +107,6 @@ async function showArticle(articleId) {
     </section>
   `;
 
-  /* --- Dodawanie komentarza --- */
   document.getElementById('comment-form').addEventListener('submit', async e => {
     e.preventDefault();
     const author = document.getElementById('comment-author').value.trim();
@@ -129,7 +119,6 @@ async function showArticle(articleId) {
     showArticle(articleId);
   });
 
-  /* --- Przycisk "Odpowiedz" --- */
   document.querySelectorAll('.reply-btn').forEach(btn =>
     btn.addEventListener('click', e =>
       openReplyForm(e.target.dataset.commentId, articleId)
@@ -137,9 +126,6 @@ async function showArticle(articleId) {
   );
 }
 
-/* ---------------------------------------------------
-   FORMULARZ ODPOWIEDZI
---------------------------------------------------- */
 function openReplyForm(parentId, articleId) {
   const container = document.getElementById(`comment-${parentId}`);
   if (!container || container.querySelector('.reply-form')) return;
@@ -172,9 +158,6 @@ function openReplyForm(parentId, articleId) {
   };
 }
 
-/* ---------------------------------------------------
-   REKURENCYJNE RENDEROWANIE KOMENTARZY
---------------------------------------------------- */
 function renderCommentsHtml(comments, level = 0) {
   if (!comments || comments.length === 0)
     return level === 0 ? '<p>Brak komentarzy — bądź pierwszy!</p>' : '';
@@ -205,9 +188,6 @@ function renderCommentsHtml(comments, level = 0) {
     .join('');
 }
 
-/* ---------------------------------------------------
-   HELPERY
---------------------------------------------------- */
 function escapeHtml(s = '') {
   return String(s)
     .replaceAll('&', '&amp;')
@@ -221,5 +201,4 @@ function nl2br(s = '') {
   return s.replace(/\n/g, '<br>');
 }
 
-/* START */
 loadArticles();
